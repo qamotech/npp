@@ -513,11 +513,155 @@
       </div>
     </section>
 
+
+
+
+    
+  <style>
+  /* 1. PREREQUISITES: Color Variables */
+  :root {
+    --cyan: #00f0ff;
+    --navy: #0a192f;
+    --navy2: #112240;
+    --violet: #8a2be2;
+    --pink: #ff007f;
+  }
+
+  /* 2. MAIN STYLES */
+  .reactor {
+    min-height: 360px;
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+    filter: drop-shadow(0 28px 40px rgba(4, 19, 41, .28));
+    /* Added to ensure the container doesn't clip the outer rings */
+    overflow: hidden; 
+  }
+
+  .reactor-core {
+    width: min(76vw, 320px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 42% 38%, #fff 0 2%, var(--cyan) 3% 7%, var(--navy2) 8% 28%, var(--navy) 29% 58%, #020711 59%);
+    border: 1px solid #51708c;
+    box-shadow: inset 0 0 45px #000, 0 0 45px color-mix(in srgb, var(--cyan) 28%, transparent);
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .orbit {
+    position: absolute;
+    width: min(91vw, 390px);
+    aspect-ratio: 1;
+    border: 2px solid color-mix(in srgb, var(--cyan) 55%, transparent);
+    border-radius: 50%;
+    box-shadow: 0 0 24px color-mix(in srgb, var(--cyan) 28%, transparent);
+    animation: spin 9s linear infinite;
+  }
+
+  .orbit.two {
+    width: min(70vw, 290px);
+    border-color: color-mix(in srgb, var(--violet) 60%, transparent);
+    animation-direction: reverse;
+    animation-duration: 6s;
+  }
+
+  .chip {
+    position: absolute;
+    width: 110px;
+    height: 145px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 18px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .3);
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .chip.one {
+    left: 2%;
+    top: 10%;
+    background: linear-gradient(145deg, var(--cyan), #1275a8);
+    --rot: -13deg; /* Custom property so the animation doesn't overwrite the rotation */
+  }
+
+  .chip.two {
+    right: 2%;
+    bottom: 4%;
+    background: linear-gradient(145deg, var(--violet), var(--pink));
+    --rot: 15deg; 
+    animation-delay: -2s;
+  }
+
+  .reactor-label {
+    position: absolute;
+    z-index: 4;
+    text-align: center;
+    color: #fff;
+    font-weight: 950;
+    font-size: clamp(1.1rem, 5vw, 1.55rem);
+    max-width: 230px;
+    line-height: 1.05;
+    text-shadow: 0 2px 12px #000;
+  }
+
+  .beam {
+    position: absolute;
+    height: 8px;
+    width: 68%;
+    left: 13%;
+    top: 50%;
+    background: linear-gradient(90deg, transparent, var(--cyan), #fff, var(--pink), transparent);
+    box-shadow: 0 0 18px var(--cyan);
+    animation: sweep 3.2s ease-in-out infinite;
+  }
+
+  /* 3. PREREQUISITES: Animations */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.9; }
+  }
+
+  @keyframes spin {
+    /* Includes your specific X and Z rotations to keep the perspective correct */
+    0% { transform: rotateX(66deg) rotateZ(-18deg) rotate(0deg); }
+    100% { transform: rotateX(66deg) rotateZ(-18deg) rotate(360deg); }
+  }
+
+  @keyframes float {
+    /* Uses the --rot variable defined on the individual chips */
+    0%, 100% { transform: translateY(0) rotate(var(--rot)); }
+    50% { transform: translateY(-15px) rotate(var(--rot)); }
+  }
+
+  @keyframes sweep {
+    0%, 100% { transform: scaleX(0.8); opacity: 0.5; }
+    50% { transform: scaleX(1.1); opacity: 1; }
+  }
+</style>
+
+<div class="reactor">
+  <div class="orbit"></div>
+  <div class="orbit two"></div>
+  <div class="reactor-core"></div>
+  <div class="beam"></div>
+  <div class="chip one"></div>
+  <div class="chip two"></div>
+  <div class="reactor-label"></div>
+</div>
+<div class="hero-container">
+  <!-- The floating elements -->
+  <div class="floating-shape shape-purple"></div>
+  <div class="floating-shape shape-teal">
+</div>
+
+
+
+
     <section class="section" id="services">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
             <p class="kicker">Painting services</p>
+
             <h2>Six ways to make a space hit different.</h2>
           </div>
           <p class="lede">Every service gets the same disciplined prep, tidy execution, and careful finish. Pick one transformation or combine them into a complete property refresh.</p>
