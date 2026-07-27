@@ -1,0 +1,9 @@
+# This repository lives at the Downloads root. Ignore unrelated downloads
+# and explicitly allow only the New Perspective Painting site.
+/*
+!/.gitignore
+!/CNAME
+!/README.md
+!/index.html
+!/new-perspective-painting-llc.html
+!/npp-*
