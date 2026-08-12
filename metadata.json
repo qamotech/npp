@@ -1,0 +1,6 @@
+{
+  "name": "New Perspective Painting",
+  "description": "Mobile-first website for New Perspective Painting LLC.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

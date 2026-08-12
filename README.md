@@ -1,13 +1,20 @@
-# New Perspective Painting
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-Static website for New Perspective Painting LLC.
+# Run and deploy your AI Studio app
 
-## File naming
+This contains everything you need to run your app locally.
 
-- Use lowercase kebab-case for site assets: `npp-purpose.ext`.
-- Keep conventional deployment filenames unchanged: `index.html`, `CNAME`, and `README.md`.
-- Update every HTML reference in the same commit as an asset rename.
-- Do not commit raw exports, screenshots, working copies, or unrelated Downloads content.
+View your app in AI Studio: https://ai.studio/apps/26311fcd-b310-480a-bd5c-e1f083f4a4fd
 
-The homepage is available at both `index.html` and the canonical
-`new-perspective-painting-llc.html` path.
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
